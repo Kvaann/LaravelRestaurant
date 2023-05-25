@@ -1,6 +1,9 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MenuController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\GalleryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,28 +20,21 @@ Route::get('/', function () {
     return view('mainwindow');
 });
 
-// Route::get('/menu', [MenuController::class, 'index']);
-
-
-// Route::get('/aboutus', [AboutController::class, 'index']);
-
-Route:controller(ContactController:class->group(function (){
-    Route::get('/contact', [ContactController::class, 'index']);
-    Route::post('/contact', [ContactController::class, 'send_email'])->name('sendEmail');
-});
-
-
 Route::get('/gallery', function () {
     return view('gallery');
 });
 
+Route::get('/menu', function () {
+    return view('menu');
+});
 
+Route::get('/aboutus', function () {
+    return view('aboutus');
+});
 
-use App\Http\Controllers\MenuController;
-use App\Http\Controllers\AboutController;
-use App\Http\Controllers\GalleryController;
-Route::get('/', function () {
-    return view('index');
+Route:controller(ContactController:class->group(function (){
+    Route::get('/contact', [ContactController::class, 'index']);
+    Route::post('/contact', [ContactController::class, 'send_email'])->name('sendEmail');
 });
 
 Route:controller(LoginController:class->group(function (){
@@ -58,6 +54,8 @@ use App\Http\Controllers\ReservationController;
 Route::resource('reservation', ReservationController::class);
 
 
+// Route::get('/menu', [MenuController::class, 'index']);
+// Route::get('/aboutus', [AboutController::class, 'index']);
 
 // use App\Http\Controllers\ContactController;
 // Route::get('/contact', [ContactController::class, 'index']);
