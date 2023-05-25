@@ -28,7 +28,11 @@ Route:controller(ContactController:class->group(function (){
 });
 
 
-// Route::get('/gallery', [GalleryController::class, 'index']);
+Route::get('/gallery', function () {
+    return view('gallery');
+});
+
+
 
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\AboutController;
@@ -43,8 +47,8 @@ Route:controller(LoginController:class->group(function (){
 });
 
 Route:controller(RegisterController:class->group(function (){
-    Route::get('/register', [RegisterController::class, 'index']);
-    Route::post('/register', [RegisterController::class, 'AddUser'])->name('updateUser');
+    Route::get('/register', 'index');
+    Route::post('/register', 'AddUser')->name('updateUser');
 });
 
 use App\Http\Controllers\LogoutController;
