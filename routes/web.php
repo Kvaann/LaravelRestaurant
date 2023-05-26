@@ -30,7 +30,6 @@ Route::get('/menu', function () {
     return view('menu');
 });
 
-
 Route::controller(ContactController::class)->group(function () {
     Route::get('/contact', [ContactController::class, 'index']);
     Route::post('/contact', [ContactController::class, 'send_email'])->name('sendEmail');
